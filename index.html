@@ -2,31 +2,1869 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="https://drive.google.com/thumbnail?id=1J4zUvZHHatnn-RHmYeoY4vaobhSR1YGr&sz=w1000" type="image/png"/>
-    <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-    <title>NGeBING | Nusantara</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base target="_blank">
+    <title>NGeBING — Nusantara</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Special+Elite&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
     <style>
-        html, body {
+        /* ═════════════════════════════════════════════════
+           NGeBING — THEME SYSTEM (SIANG / MALAM)
+           ═════════════════════════════════════════════════ */
+
+        /* ── LIGHT THEME (default) ── */
+        :root {
+            --nb-red: #D31D12;
+            --nb-black: #1E1E1E;
+            --nb-white: #FFFFFF;
+
+            /* Warna Dasar Putih Keemasan (Ivory Gold) */
+            --nb-bg-gold: #FDFBF4;
+            --nb-gold-light: #F7F4E9;
+            --nb-gold-accent: #EAB114;
+            --nb-gold-border: #E5DCBF;
+
+            --nb-orange: #E97817;
+            --nb-green: #2A9E2F;
+            --nb-blue: #0A6ECA;
+            --nb-purple: #7E2187;
+            --nb-brown: #6A432D;
+            --nb-silver: #7A7566;
+
+            /* UI Mapping — Light */
+            --bg-body: var(--nb-bg-gold);
+            --bg-surface: var(--nb-white);
+            --bg-surface-alt: var(--nb-gold-light);
+            --text-primary: var(--nb-black);
+            --text-secondary: var(--nb-silver);
+            --border-color: var(--nb-gold-border);
+            --shadow-color: rgba(234, 177, 20, 0.08);
+            --shadow-strong: rgba(234, 177, 20, 0.15);
+            --input-bg: var(--nb-gold-light);
+            --input-border: var(--nb-gold-border);
+            --table-header-bg: var(--nb-gold-border);
+            --table-row-hover: rgba(234, 177, 20, 0.05);
+            --popup-overlay: rgba(40, 35, 20, 0.3);
+            --break-card-bg: var(--nb-white);
+            --toast-bg: var(--nb-white);
+            --load-bg: var(--nb-bg-gold);
+            --header-border: var(--nb-gold-border);
+            --progress-track: var(--nb-gold-light);
+            --divider-color: var(--nb-gold-border);
+            --status-offline: var(--nb-silver);
+            --btn-bg: var(--nb-bg-gold);
+            --btn-hover-bg: var(--nb-white);
+            --btn-hover-color: var(--nb-gold-accent);
+            --btn-primary-bg: linear-gradient(135deg, var(--nb-red) 0%, #A61209 100%);
+            --btn-primary-shadow: rgba(213, 29, 18, 0.25);
+            --btn-primary-shadow-hover: rgba(213, 29, 18, 0.35);
+            --info-content-bg: var(--nb-gold-light);
+            --info-content-border: var(--nb-gold-border);
+            --scrollbar-thumb: var(--nb-gold-border);
+            --corner-opacity: 0.4;
+            --header-shadow: inset 0 0 20px rgba(234, 177, 20, 0.03);
+        }
+
+        /* ── DARK THEME ── */
+        [data-theme="dark"] {
+            --bg-body: #0F0E0A;
+            --bg-surface: #1A1812;
+            --bg-surface-alt: #25221A;
+            --text-primary: #E8E0D0;
+            --text-secondary: #9A9484;
+            --border-color: #3D3520;
+            --shadow-color: rgba(0, 0, 0, 0.4);
+            --shadow-strong: rgba(234, 177, 20, 0.08);
+            --input-bg: #25221A;
+            --input-border: #3D3520;
+            --table-header-bg: #2A2518;
+            --table-row-hover: rgba(234, 177, 20, 0.06);
+            --popup-overlay: rgba(0, 0, 0, 0.7);
+            --break-card-bg: #1A1812;
+            --toast-bg: #1A1812;
+            --load-bg: #0F0E0A;
+            --header-border: #3D3520;
+            --progress-track: #25221A;
+            --divider-color: #3D3520;
+            --status-offline: #6A6558;
+            --btn-bg: #25221A;
+            --btn-hover-bg: #1A1812;
+            --btn-hover-color: var(--nb-gold-accent);
+            --btn-primary-bg: linear-gradient(135deg, #B0170E 0%, #8F1009 100%);
+            --btn-primary-shadow: rgba(179, 23, 14, 0.3);
+            --btn-primary-shadow-hover: rgba(179, 23, 14, 0.45);
+            --info-content-bg: #25221A;
+            --info-content-border: #3D3520;
+            --scrollbar-thumb: #3D3520;
+            --corner-opacity: 0.25;
+            --header-shadow: inset 0 0 20px rgba(0, 0, 0, 0.4);
+
+            /* Warna aksen tetap sama tapi dengan sentuhan lebih hangat di gelap */
+            --nb-gold-light: #2A2518;
+            --nb-gold-border: #3D3520;
+            --nb-bg-gold: #0F0E0A;
+            --nb-white: #1A1812;
+            --nb-black: #E8E0D0;
+            --nb-silver: #9A9484;
+        }
+
+        /* ── BASE ── */
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
         }
-        iframe {
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            min-height: 100vh;
+            background-image:
+                radial-gradient(circle at 50% 20%, rgba(234, 177, 20, 0.06) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(213, 29, 18, 0.03) 0%, transparent 40%);
+            transition: background-color 0.5s ease, color 0.4s ease;
+        }
+
+        [data-theme="dark"] body {
+            background-image:
+                radial-gradient(circle at 50% 20%, rgba(234, 177, 20, 0.04) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(213, 29, 18, 0.02) 0%, transparent 40%);
+        }
+
+        /* ── LOADING ── */
+        #loading {
+            position: fixed;
+            inset: 0;
+            background: var(--load-bg);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.6s ease, background 0.5s ease;
+            padding: 20px;
+        }
+        #loading.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .loading-logo {
+            width: 180px;
+            height: 180px;
+            object-fit: contain;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 8px 16px rgba(234, 177, 20, 0.15));
+        }
+        .load-text {
+            font-family: 'Special Elite', cursive;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.25em;
+            color: var(--text-secondary);
+            margin-top: 14px;
+            text-transform: uppercase;
+            animation: fadePulse 1.8s ease-in-out infinite;
+        }
+        @keyframes fadePulse {
+            0%,
+            100% {
+                opacity: 0.5;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+        @keyframes chalkDraw {
+            0% {
+                width: 0%;
+                margin-left: 0;
+            }
+            50% {
+                width: 70%;
+                margin-left: 15%;
+            }
+            100% {
+                width: 0%;
+                margin-left: 100%;
+            }
+        }
+
+        /* ── APP WRAPPER ── */
+        #app-wrapper {
+            display: flex;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        #main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        /* ── PLAYER CONTAINER ── */
+        .player-container {
+            width: 100%;
+            max-width: 430px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow:
+                0 15px 40px var(--shadow-color),
+                0 5px 15px rgba(0, 0, 0, 0.02);
+            padding: 24px;
+            position: relative;
+            transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        /* Ornamen Sudut */
+        .player-container::before,
+        .player-container::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-color: var(--nb-gold-accent);
+            border-style: solid;
+            pointer-events: none;
+            opacity: var(--corner-opacity);
+            transition: opacity 0.4s ease;
+        }
+        .player-container::before {
+            top: 12px;
+            left: 12px;
+            border-width: 1.5px 0 0 1.5px;
+            border-radius: 4px 0 0 0;
+        }
+        .player-container::after {
+            top: 12px;
+            right: 12px;
+            border-width: 1.5px 1.5px 0 0;
+            border-radius: 0 4px 0 0;
+        }
+
+        /* ── PLAYER HEADER ── */
+        .player-header {
+            position: relative;
+            margin-bottom: 22px;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 230px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            box-shadow: var(--header-shadow);
+            transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+        }
+        .header-logo-full {
             width: 100%;
             height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.06));
+            transition: filter 0.4s ease;
+        }
+        [data-theme="dark"] .header-logo-full {
+            filter: drop-shadow(0 2px 12px rgba(0, 0, 0, 0.4));
+        }
+
+        /* ── THEME TOGGLE (tombol kecil di header) ── */
+        .theme-toggle-btn {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            z-index: 10;
+            background: var(--bg-surface-alt);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+            backdrop-filter: blur(4px);
+        }
+        .theme-toggle-btn:hover {
+            transform: scale(1.05) rotate(8deg);
+            border-color: var(--nb-gold-accent);
+            color: var(--nb-gold-accent);
+            box-shadow: 0 4px 16px rgba(234, 177, 20, 0.15);
+        }
+        .theme-toggle-btn i {
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .theme-toggle-btn:hover i {
+            transform: rotate(20deg);
+        }
+        [data-theme="dark"] .theme-toggle-btn i {
+            transform: rotate(180deg);
+        }
+        [data-theme="dark"] .theme-toggle-btn:hover i {
+            transform: rotate(200deg);
+        }
+
+        /* ── TIME DISPLAY ── */
+        .time-display {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 13px;
+            color: var(--text-secondary);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        .time-current {
+            color: var(--nb-red);
+        }
+
+        /* ── PROGRESS BAR ── */
+        .progress-container {
+            position: relative;
+            height: 6px;
+            background: var(--progress-track);
+            border-radius: 3px;
+            margin-bottom: 22px;
+            overflow: hidden;
+            border: 1px solid rgba(235, 220, 191, 0.3);
+            transition: background 0.4s ease, border-color 0.4s ease;
+        }
+        #active-progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--nb-red), var(--nb-orange), var(--nb-gold-accent), var(--nb-green), var(--nb-blue));
+            border-radius: 3px;
+            transition: width 0.4s ease;
+        }
+
+        /* ── CONTROLS ── */
+        .player-controls {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 24px;
+            justify-content: center;
+            align-items: center;
+        }
+        .player-btn {
+            background: var(--btn-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            border-radius: 14px;
+            padding: 12px 16px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 46px;
+            min-height: 46px;
+        }
+        .player-btn:hover {
+            background: var(--btn-hover-bg);
+            border-color: var(--nb-gold-accent);
+            color: var(--btn-hover-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px var(--shadow-color);
+        }
+        .player-btn.primary {
+            background: var(--btn-primary-bg);
             border: none;
+            color: var(--nb-white);
+            padding: 14px 24px;
+            font-size: 1.25rem;
+            box-shadow: 0 6px 20px var(--btn-primary-shadow);
+            font-weight: 700;
+            transition: all 0.25s ease;
+        }
+        .player-btn.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px var(--btn-primary-shadow-hover);
+        }
+        .player-btn.active {
+            background: var(--bg-surface);
+            border-color: var(--nb-blue);
+            color: var(--nb-blue);
+        }
+
+        /* ── SEPARATOR ── */
+        .player-divider {
+            height: 1px;
+            background: var(--divider-color);
+            margin: 18px 0;
+            opacity: 0.6;
+            transition: background 0.4s ease;
+        }
+
+        /* ── STATUS INDICATOR ── */
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--nb-red);
+            animation: dotGlow 2s ease-in-out infinite;
+            flex-shrink: 0;
+        }
+        .status-dot.online {
+            background: var(--nb-green);
+        }
+        .status-dot.error {
+            background: var(--nb-red);
+            animation: none;
+        }
+        @keyframes dotGlow {
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(42, 158, 47, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 0 6px rgba(42, 158, 47, 0);
+            }
+        }
+
+        /* ── FORMS & INPUTS ── */
+        .settings-label {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+            display: block;
+            opacity: 0.8;
+            transition: color 0.3s ease;
+        }
+        .r-input {
+            background: var(--input-bg);
+            color: var(--text-primary);
+            border: 1px solid var(--input-border);
+            border-radius: 10px;
+            padding: 10px 14px;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 13px;
+            width: 100%;
+            transition: all 0.25s;
+            outline: none;
+        }
+        .r-input:focus {
+            border-color: var(--nb-gold-accent);
+            box-shadow: 0 0 0 3px rgba(234, 177, 20, 0.12);
+            background: var(--bg-surface);
+        }
+        .settings-row {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+        }
+        .settings-group {
+            flex: 1;
+            min-width: 130px;
+        }
+        .settings-group-full {
+            width: 100%;
+            margin-bottom: 14px;
+        }
+
+        /* ── TOGGLE SWITCHES ── */
+        .form-check {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+        .form-check-input {
+            width: 2.2em;
+            height: 1.1em;
+            background-color: var(--input-bg);
+            border-color: var(--input-border);
+            cursor: pointer;
+            flex-shrink: 0;
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+        .form-check-input:checked {
+            background-color: var(--nb-red) !important;
+            border-color: var(--nb-red) !important;
+        }
+        .form-check-label {
+            font-size: 13px;
+            cursor: pointer;
+            margin-bottom: 0;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 500;
+            color: var(--text-primary);
+            transition: color 0.3s ease;
+        }
+
+        /* ── THEME TOGGLE SWITCH (khusus) ── */
+        .theme-switch-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 12px;
+            background: var(--bg-surface-alt);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            margin-bottom: 6px;
+        }
+        .theme-switch-wrapper .form-check {
+            margin-bottom: 0;
+            flex: 1;
+        }
+        .theme-switch-wrapper .form-check-input {
+            width: 2.8em;
+            height: 1.3em;
+        }
+        .theme-switch-wrapper .theme-icon {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            transition: color 0.3s ease, transform 0.5s ease;
+            min-width: 22px;
+            text-align: center;
+        }
+        .theme-switch-wrapper .theme-icon.active {
+            color: var(--nb-gold-accent);
+        }
+        [data-theme="dark"] .theme-switch-wrapper .theme-icon.fa-sun {
+            color: var(--text-secondary);
+        }
+        [data-theme="dark"] .theme-switch-wrapper .theme-icon.fa-moon {
+            color: var(--nb-gold-accent);
+        }
+        [data-theme="light"] .theme-switch-wrapper .theme-icon.fa-sun {
+            color: var(--nb-gold-accent);
+        }
+        [data-theme="light"] .theme-switch-wrapper .theme-icon.fa-moon {
+            color: var(--text-secondary);
+        }
+
+        /* ── CARD BLOCKS ── */
+        .info-section {
+            margin-top: 14px;
+        }
+        .info-content {
+            background: var(--info-content-bg);
+            border: 1px solid var(--info-content-border);
+            border-radius: 12px;
+            padding: 14px;
+            font-size: 12.5px;
+            font-family: 'Share Tech Mono', monospace;
+            color: var(--text-primary);
+            max-height: 130px;
+            overflow-y: auto;
+            transition: background 0.4s ease, border-color 0.4s ease, color 0.3s ease;
+        }
+        .info-content::-webkit-scrollbar {
+            width: 4px;
+        }
+        .info-content::-webkit-scrollbar-thumb {
+            background: var(--scrollbar-thumb);
+            border-radius: 3px;
+        }
+
+        /* ── DATA TABLES ── */
+        .activity-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 11px;
+            margin-top: 4px;
+        }
+        .activity-table th {
+            background: var(--table-header-bg);
+            color: var(--text-primary);
+            padding: 8px;
+            text-align: left;
+            font-weight: 700;
+            border-bottom: 1px solid var(--border-color);
+            font-family: 'Quicksand', sans-serif;
+            position: sticky;
+            top: 0;
+            opacity: 0.9;
+            transition: background 0.4s ease, color 0.3s ease, border-color 0.4s ease;
+        }
+        .activity-table td {
+            padding: 8px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.02);
+            font-family: 'Share Tech Mono', monospace;
+            color: var(--text-primary);
+            transition: color 0.3s ease, border-color 0.4s ease;
+        }
+        [data-theme="dark"] .activity-table td {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+        .activity-table tr:hover {
+            background: var(--table-row-hover);
+        }
+
+        /* ── ANIMATED COLLAPSIBLE ── */
+        .collapsible-section {
+            max-height: 1000px;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+            opacity: 1;
+        }
+        .collapsible-section.hidden {
+            max-height: 0;
+            opacity: 0;
+        }
+
+        /* ── BREAK POPUP ── */
+        #break-popup {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9000;
+            align-items: center;
+            justify-content: center;
+            background: var(--popup-overlay);
+            backdrop-filter: blur(5px);
+            transition: background 0.4s ease;
+        }
+        #break-popup.show {
+            display: flex;
+        }
+        .break-card {
+            background: var(--break-card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 32px 40px;
+            text-align: center;
+            box-shadow: 0 20px 50px var(--shadow-strong);
+            min-width: 260px;
+            position: relative;
+            transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+        }
+        .break-card::before,
+        .break-card::after {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-color: var(--nb-gold-accent);
+            border-style: solid;
+            opacity: var(--corner-opacity);
+            transition: opacity 0.4s ease;
+        }
+        .break-card::before {
+            top: 10px;
+            left: 10px;
+            border-width: 1.5px 0 0 1.5px;
+        }
+        .break-card::after {
+            top: 10px;
+            right: 10px;
+            border-width: 1.5px 1.5px 0 0;
+        }
+        .break-icon {
+            font-size: 2.5rem;
+            margin-bottom: 8px;
+        }
+        .break-title {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            letter-spacing: 0.05em;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+        .break-countdown {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--nb-red);
+        }
+        .break-sub {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            font-size: 11px;
+            color: var(--text-secondary);
+            margin-top: 8px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        /* ── TOAST NOTIFICATIONS ── */
+        #w-toast {
+            position: fixed;
+            bottom: 22px;
+            right: 22px;
+            z-index: 1200;
+            max-width: 330px;
+            width: calc(100% - 44px);
+            transform: translateY(120px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            pointer-events: none;
+        }
+        #w-toast.show {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .toast-inner {
+            background: var(--toast-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 14px;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            box-shadow: 0 10px 30px var(--shadow-strong);
+            transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+        }
+        .toast-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+            border: 1px solid var(--border-color);
+            transition: border-color 0.4s ease;
+        }
+        .toast-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        #toast-message {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 12px;
+            color: var(--text-primary);
+            margin: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            transition: color 0.3s ease;
+        }
+        .toast-inner h4 {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            font-size: 12px;
+            color: var(--nb-red);
+            margin: 0 0 2px;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 480px) {
+            .player-container {
+                max-width: 100%;
+                border-radius: 20px;
+                padding: 16px;
+            }
+            .player-header {
+                height: 180px;
+            }
+            .theme-toggle-btn {
+                width: 34px;
+                height: 34px;
+                font-size: 0.9rem;
+                top: 10px;
+                right: 10px;
+            }
+            .theme-switch-wrapper {
+                padding: 6px 10px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        /* ── TRANSISI HALUS UNTUK SEMUA ELEMEN ── */
+        .player-container,
+        .player-header,
+        .info-content,
+        .break-card,
+        .toast-inner,
+        .r-input,
+        .player-btn,
+        .status-indicator,
+        .settings-label,
+        .form-check-label,
+        .activity-table th,
+        .activity-table td,
+        .break-title,
+        .break-sub,
+        #loading {
+            transition: background 0.4s ease, color 0.3s ease, border-color 0.4s ease, box-shadow 0.4s ease, opacity 0.4s ease;
         }
     </style>
 </head>
 <body>
 
-    <iframe 
-        src="https://script.google.com/macros/s/AKfycbxNSq3MiUeqZLWeqUW4ckbUbs15jgrm0cbuQz1wpeWOojtSnmBhAJdCpbnuQZ_Fg_sL/exec"
-        allowfullscreen
-        loading="lazy">
-    </iframe>
+    <!-- ═══════ APP WRAPPER ═══════ -->
+    <div id="app-wrapper">
+        <div id="main-content">
+            <div class="player-container">
 
+                <!-- ── PLAYER HEADER dengan tombol tema ── -->
+                <div class="player-header">
+                    <img src="https://drive.google.com/thumbnail?id=1J4zUvZHHatnn-RHmYeoY4vaobhSR1YGr&sz=w1000" alt="Logo NGeBING" class="header-logo-full">
+                    <!-- Tombol toggle tema (siang/malam) di pojok kanan atas -->
+                    <button class="theme-toggle-btn" id="themeToggleBtn" title="Ganti tema Siang / Malam">
+                        <i class="fas fa-sun" id="themeIcon"></i>
+                    </button>
+                </div>
+
+                <!-- ── TIME DISPLAY ── -->
+                <div class="time-display">
+                    <span class="time-current">00:00</span>
+                    <span>00:00</span>
+                </div>
+
+                <!-- ── PROGRESS BAR ── -->
+                <div class="progress-container">
+                    <div id="active-progress-bar"></div>
+                </div>
+
+                <!-- ── CONTROLS ── -->
+                <div class="player-controls">
+                    <button class="player-btn" id="playlist-btn" title="Aktivitas & Data Budaya">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </button>
+                    <button class="player-btn primary" id="start-stop-btn" title="Mulai Penjelajahan Nusantara">
+                        <i class="fas fa-flag"></i>
+                    </button>
+                    <button class="player-btn" id="settings-btn" title="Pengaturan Sesi">
+                        <i class="fas fa-sliders-h"></i>
+                    </button>
+                </div>
+
+                <!-- ── STATUS ── -->
+                <div class="status-indicator">
+                    <div class="status-dot" id="status-indicator"></div>
+                    <span id="status-text">Menyiapkan balai komunitas...</span>
+                </div>
+
+                <div class="player-divider"></div>
+
+                <!-- ── MODE BOT ── -->
+                <div class="info-section">
+                    <label class="settings-label">Eksplorasi Aktif</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="mode-news" checked>
+                        <label class="form-check-label" for="mode-news">
+                            📰 Penjelajah Tradisi & Kebudayaan
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="mode-assistant" checked>
+                        <label class="form-check-label" for="mode-assistant">
+                            🗂️ Arsip Keberagaman
+                        </label>
+                    </div>
+                </div>
+
+                <!-- ── SETTINGS ── -->
+                <div class="player-divider"></div>
+                <div class="info-section collapsible-section hidden" id="settings-section">
+                    <label class="settings-label">⚙️ Konfigurasi Penjelajahan</label>
+
+                    <!-- ── SWITCH TEMA SIANG / MALAM ── -->
+                    <div class="theme-switch-wrapper">
+                        <span class="theme-icon fa-solid fa-sun" id="themeLabelSun"></span>
+                        <div class="form-check" style="margin-bottom:0;flex:1;">
+                            <input class="form-check-input" type="checkbox" id="themeSwitch" style="width:2.8em;height:1.3em;">
+                            <label class="form-check-label" for="themeSwitch" style="font-weight:600;font-size:12px;">
+                                Mode <span id="themeLabelText">Siang</span>
+                            </label>
+                        </div>
+                        <span class="theme-icon fa-solid fa-moon" id="themeLabelMoon"></span>
+                    </div>
+
+                    <div class="settings-group-full">
+                        <label class="settings-label">📰 Target Tradisi & Kebudayaan</label>
+                        <input type="number" id="news-limit" class="r-input" value="21" min="1">
+                    </div>
+                    <div class="settings-row">
+                        <div class="settings-group">
+                            <label class="settings-label">Jeda Min (s)</label>
+                            <input type="number" id="news-min-delay" class="r-input" value="10" min="1">
+                        </div>
+                        <div class="settings-group">
+                            <label class="settings-label">Jeda Max (s)</label>
+                            <input type="number" id="news-max-delay" class="r-input" value="15" min="1">
+                        </div>
+                    </div>
+
+                    <div class="settings-group-full">
+                        <label class="settings-label">🗂️ Target Arsip Keberagaman</label>
+                        <input type="number" id="asst-count" class="r-input" value="11" min="1">
+                    </div>
+                    <div class="settings-row">
+                        <div class="settings-group">
+                            <label class="settings-label">Jeda Min (s)</label>
+                            <input type="number" id="asst-min-delay" class="r-input" value="10" min="1">
+                        </div>
+                        <div class="settings-group">
+                            <label class="settings-label">Jeda Max (s)</label>
+                            <input type="number" id="asst-max-delay" class="r-input" value="15" min="1">
+                        </div>
+                    </div>
+
+                    <div class="settings-group-full">
+                        <label class="settings-label">⏳ Waktu Transisi (s)</label>
+                        <input type="number" id="inter-bot-delay" class="r-input" value="10" min="1">
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="break-toggle" checked>
+                        <label class="form-check-label" for="break-toggle">
+                            ☕ Aktifkan Jeda Rehat Sabang-Merauke
+                        </label>
+                    </div>
+                </div>
+
+                <!-- ── DATABASE & LOG ── -->
+                <div class="player-divider"></div>
+                <div class="collapsible-section hidden" id="activity-section">
+                    <div class="info-section">
+                        <label class="settings-label">🏛️ Status Gerbang Data Nusantara</label>
+                        <div class="info-content">
+                            <div id="db-status-text" style="color:var(--text-secondary);">Menyambungkan silaturahmi data...</div>
+                            <div style="font-size:11px;margin-top:6px">
+                                <i class="fas fa-circle" id="db-link-icon" style="color:var(--nb-gold-accent);margin-right:4px;font-size:7px"></i>
+                                <span id="gas-server-label" style="color:var(--text-secondary);">Menghubungi server GAS NGeBING...</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-section">
+                        <label class="settings-label">📋 Catatan Keragaman Aktivitas</label>
+                        <div class="info-content">
+                            <table class="activity-table">
+                                <thead>
+                                    <tr>
+                                        <th>Modul</th>
+                                        <th>Keberagaman Tradisi</th>
+                                        <th style="text-align:center">Waktu</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="activity-log-body">
+                                    <tr>
+                                        <td colspan="3" style="text-align:center;color:var(--text-secondary);padding:10px">
+                                            <i class="fa-solid fa-feather-pointed" style="opacity:0.4;display:block;margin-bottom:6px"></i>
+                                            Belum ada tradisi atau data yang dieksplorasi.
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════ BREAK POPUP ═══════ -->
+    <div id="break-popup">
+        <div class="break-card">
+            <div class="break-icon">🇮🇩</div>
+            <div class="break-title" style="color: var(--nb-red); font-weight: 800;">Bhinneka Tunggal Ika</div>
+            <div class="break-countdown" id="break-countdown-num">10</div>
+            <div class="break-sub">Rehat Sejenak Nusantara</div>
+        </div>
+    </div>
+
+    <!-- ═══════ TOAST ═══════ -->
+    <div id="w-toast">
+        <div class="toast-inner">
+            <div class="toast-avatar">
+                <img src="https://drive.google.com/thumbnail?id=1J4zUvZHHatnn-RHmYeoY4vaobhSR1YGr&sz=w1000" alt="NGeBING">
+            </div>
+            <div style="flex:1;min-width:0">
+                <h4>NGeBING Nusantara</h4>
+                <p id="toast-message">Selamat datang di Wadah Persatuan.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════ LOADING ═══════ -->
+    <div id="loading">
+        <img src="https://drive.google.com/thumbnail?id=1J4zUvZHHatnn-RHmYeoY4vaobhSR1YGr&sz=w1000" alt="Logo NGeBING" class="loading-logo">
+        <div style="font-size:10px;font-family:'Share Tech Mono',monospace;letter-spacing:0.1em;color:var(--nb-red);margin-top:8px;font-weight:700">BHINNEKA TUNGGAL IKA EDITION</div>
+        <div style="width:180px;height:4px;background:var(--border-color);border-radius:2px;margin-top:15px;overflow:hidden">
+            <div style="height:100%;background:linear-gradient(90deg,var(--nb-red),var(--nb-orange),var(--nb-gold-accent),var(--nb-green),var(--nb-blue));animation:chalkDraw 1.8s ease-in-out infinite"></div>
+        </div>
+        <div class="load-text">Membuka Gerbang Harmoni...</div>
+    </div>
+
+    <script>
+        // ═════════════════════════════════════════════════
+        // 1. THEME TOGGLE — SIANG / MALAM
+        // ═════════════════════════════════════════════════
+
+        (function initTheme() {
+            const STORAGE_KEY = 'ngebing-theme';
+            const html = document.documentElement;
+            const themeSwitch = document.getElementById('themeSwitch');
+            const themeIcon = document.getElementById('themeIcon');
+            const themeLabelText = document.getElementById('themeLabelText');
+            const themeLabelSun = document.getElementById('themeLabelSun');
+            const themeLabelMoon = document.getElementById('themeLabelMoon');
+
+            // Baca preferensi tersimpan atau gunakan sistem
+            let stored = localStorage.getItem(STORAGE_KEY);
+            let prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            let theme = stored || (prefersDark ? 'dark' : 'light');
+
+            function applyTheme(mode) {
+                if (mode === 'dark') {
+                    html.setAttribute('data-theme', 'dark');
+                    themeIcon.className = 'fas fa-moon';
+                    themeLabelText.textContent = 'Malam';
+                    themeSwitch.checked = true;
+                    themeLabelSun.className = 'theme-icon fa-solid fa-sun';
+                    themeLabelMoon.className = 'theme-icon fa-solid fa-moon active';
+                } else {
+                    html.removeAttribute('data-theme');
+                    themeIcon.className = 'fas fa-sun';
+                    themeLabelText.textContent = 'Siang';
+                    themeSwitch.checked = false;
+                    themeLabelSun.className = 'theme-icon fa-solid fa-sun active';
+                    themeLabelMoon.className = 'theme-icon fa-solid fa-moon';
+                }
+                localStorage.setItem(STORAGE_KEY, mode);
+            }
+
+            // Tombol bulat di header
+            document.getElementById('themeToggleBtn').addEventListener('click', function(e) {
+                e.stopPropagation();
+                let current = html.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+                let next = current === 'dark' ? 'light' : 'dark';
+                applyTheme(next);
+            });
+
+            // Switch di settings
+            themeSwitch.addEventListener('change', function() {
+                let mode = this.checked ? 'dark' : 'light';
+                applyTheme(mode);
+            });
+
+            // Terapkan tema awal
+            applyTheme(theme);
+        })();
+
+
+        // ═════════════════════════════════════════════════
+        // 2. LOGIKA BOT — (dipertahankan penuh)
+        // ═════════════════════════════════════════════════
+
+        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwRBBw1Rx2Ayu7bPLwIdswjgZzLYk-3_mYovtkFFqXT6iCOmnzk1jArTBwg_j7oyC8/exec';
+        const ORGANIC_REWARDS_LINK = "sapphire://miniApp?id=32649384730b2d61c9e79d46de589115&source=2mBadge";
+
+		const newsCategoriesRSS = [
+			'https://news.google.com/rss/search?q=adat+istiadat+aceh+gayo&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=budaya+minangkabau+sumatera+barat&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=tradisi+melayu+riau+kepulauan&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=adat+basandi+syarak+minangkabau&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=budaya+palembang+sumatera+selatan&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=adat+lampung+saibatin+pepadun&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=kebudayaan+betawi+jakarta&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=filosofi+kejawen+jawa+tengah&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=adat+istiadat+madura+karapan+sapi&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=budaya+bali+subak+nyepi&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=tradisi+suku+sasak+lombok&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=adat+suku+dayak+kalimantan&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=kebudayaan+suku+banjar&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=adat+istiadat+minahasa+sulut&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=budaya+toraja+rambu+solo&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=adat+suku+bugis+makassar&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=kebudayaan+suku+mandar&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=tradisi+suku+buton+sultra&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=adat+istiadat+maluku+pela+gandong&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=kebudayaan+suku+asmat+dani+papua&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=seni+tari+pendet+kecak+bali&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=pertunjukan+wayang+orang+bharata&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=pelestarian+gamelan+jawa+bali&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=alat+musik+sasando+ntt&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=kerajinan+perak+kotagede&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=ukiran+kayu+asmat+papua&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=seni+beladiri+pencak+silat+indonesia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=warisan+budaya+dunia+borobudur+prambanan&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=museum+nasional+indonesia+koleksi&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=revitalisasi+kota+tua+jakarta&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=seni+tari+saman+aceh&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=tari+piring+minangkabau&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=tari+jaipong+sunda+jawa+barat&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=seni+tari+gandrung+banyuwangi&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=tari+pakarena+sulawesi+selatan&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=alat+musik+angklung+saung+udjo&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=musik+kolintang+sulawesi+utara&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=seni+kriya+kulit+tatah+sungging&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=kerajinan+gerabah+kasongan+yogyakarta&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=pembuatan+keris+tradisional+empu&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=batik+tulis+solo+pekalongan&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=tenun+ikat+sumba+ntt&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=songket+palembang+minangkabau&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=kain+ulos+batak+sumatera+utara&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=kain+tapis+lampung&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=tenun+troso+jepara&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=batik+bakaran+pati&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=industri+batik+nasional&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=pewarna+alami+tekstil+indonesia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=tenun+gringsing+bali&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=tenun+sengkang+sulawesi&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=kain+sasirangan+kalimantan+selatan&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=batik+banten+filosofi&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=tenun+ikat+alor&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=songket+sambas+kalimantan+barat&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=batik+lasem+akulturasi&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=kain+besurek+bengkulu&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=tenun+toraja+motif&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=batik+madura+gentongan&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=hari+batik+nasional+perayaan&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=resep+masakan+padang+rendang&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=kuliner+nusantara+soto+indonesia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=makanan+khas+papua+papeda&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=jajanan+pasar+tradisional+jawa&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=kopi+spesialti+indonesia+gayo+kintamani&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=rempah-rempah+indonesia+maluku&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=festival+kuliner+nusantara&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=gudeg+yogyakarta+tradisional&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=pempek+palembang+asli&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=rawon+jawa+timur+terbaik&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=ayam+betutu+bali+bumbu&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=coto+makassar+tradisional&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=tinutuan+bubur+manado&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=sate+lilit+bali+kuliner&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=bumbu+dasar+masakan+indonesia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=makanan+tradisional+sunda+lalapan&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=kerak+telor+betawi+asli&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=kuliner+ekstrim+nusantara&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=perkembangan+industri+kopi+indonesia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=warisan+kuliner+takbenda+indonesia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=wisata+raja+ampat+papua+barat&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=taman+nasional+komodo+labuan+bajo&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=pendakian+gunung+rinjani+semeru&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=keindahan+danau+toba+sumatera&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=ekowisata+hutan+kalimantan&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=konservasi+orangutan+tanjung+puting&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=terumbu+karang+wakatobi+bunaken&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=wisata+budaya+desa+penglipuran+bali&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=keindahan+gunung+bromo+tengger&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=pesona+wisata+belitung+laskar+pelangi&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=taman+nasional+bunaken+sulawesi&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=wisata+bahari+derawan+kaltim&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=keeksotisan+pula+sumba&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=taman+nasional+way+kambas+lampung&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=wisata+sejarah+benteng+vanderwijck&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=desa+wisata+terbaik+kemenparekraf&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=geopark+ciletuh+sukabumi&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=pariwisata+berkelanjutan+indonesia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=wisata+religi+masjid+raya+baiturrahman&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=keindahan+pantai+kuta+bali&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=moderasi+beragama+indonesia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=kerukunan+antar+suku+bangsa&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=pemberdayaan+masyarakat+adat&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=perlindungan+hutan+adat+nusantara&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=pendidikan+karakter+budaya+bangsa&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=digitalisasi+aksara+daerah&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=toleransi+umat+beragama+indonesia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=dialog+antar+kepercayaan+nusantara&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=hak+masyarakat+hukum+adat&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=resolusi+konflik+sosial+daerah&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=integrasi+sosial+bhinneka+tunggal+ika&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=festival+keberagaman+budaya&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=kampung+toleransi+indonesia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=perlindungan+bahasa+daerah+punah&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=peran+tokoh+adat+kedamaian&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=revitalisasi+nilai+pancasila&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=kesetaraan+gender+masyarakat+adat&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=forum+kerukunan+umat+beragama&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=asimilasi+budaya+tioghoa+indonesia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=pemuda+penggerak+perdamaian+daerah&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=pembangunan+ikn+nusantara+kalimantan&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=umkm+kerajinan+tangan+daerah&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=ekonomi+kreatif+indonesia+kemenparekraf&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=infrastruktur+tol+trans+sumatera+jawa&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=potensi+wisata+desa+mandiri&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=pemberdayaan+ekonomi+masyarakat+pesisir&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=komoditas+unggulan+pertanian+daerah&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=investasi+hijau+energi+terbarukan+indonesia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=digitalisasi+umkm+pedesaan&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=pertumbuhan+ekonomi+luar+jawa&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=pembangunan+daerah+tertinggal+3t&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=potensi+maritim+indonesia+timur&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=industri+pengolahan+nikel+sulawesi&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=ketahanan+pangan+lokal+sagu+jagung&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=pajak+daerah+dan+retribusi&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=dana+desa+dan+pembangunan+lokal&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=program+kredit+usaha+rakyat+kur&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=kawasan+ekonomi+khusus+kek+indonesia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=perdagangan+antar+pulau+nusantara&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=pembangunan+pelabuhan+laut+dalam&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=berita+provinsi+aceh+terkini&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=berita+provinsi+sumatera+utara&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=berita+provinsi+sumatera+barat&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=berita+provinsi+riau+pekanbaru&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=berita+provinsi+kepulauan+riau&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=berita+provinsi+jambi+terbaru&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=berita+provinsi+bengkulu&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=berita+provinsi+sumatera+selatan&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=berita+provinsi+bangka+belitung&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=berita+provinsi+lampung&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=berita+provinsi+dki+jakarta&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=berita+provinsi+banten&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=berita+provinsi+jawa+barat&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=berita+provinsi+jawa+tengah&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=berita+provinsi+di+yogyakarta&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=berita+provinsi+jawa+timur&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=berita+provinsi+bali+denpasar&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=berita+provinsi+nusa+tenggara+barat&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=berita+provinsi+nusa+tenggara+timur&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=berita+provinsi+kalimantan+barat&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=berita+provinsi+kalimantan+tengah&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=berita+provinsi+kalimantan+selatan&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=berita+provinsi+kalimantan+timur&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=berita+provinsi+kalimantan+utara&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=berita+provinsi+sulawesi+utara&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=berita+provinsi+gorontalo&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=berita+provinsi+sulawesi+tengah&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=berita+provinsi+sulawesi+barat&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=berita+provinsi+sulawesi+selatan&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=berita+provinsi+sulawesi+tenggara&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=berita+provinsi+maluku+ambon&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=berita+provinsi+maluku+utara&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=berita+provinsi+papua+jayapura&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=berita+provinsi+papua+barat&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=berita+provinsi+papua_selatan&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=berita+provinsi+papua_tengah&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=berita+provinsi+papua_pegunungan&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=berita+provinsi+papua_barat_daya&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=otonomi+daerah+perkembangan+indonesia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=pembagian+dana+alokasi+umum+dau&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=konservasi+harimau+sumatera&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=perlindungan+badak+jawa+ujung+kulon&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=habitat+gajah+sumatera+mitigasi&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=burung+cendrawasih+papua+konservasi&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=penangkaran+jalak+bali+taman+nasional&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=penelitian+bunga+rafflesia+arnoldii&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=rehabilitasi+hutan+mangrove+indonesia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=keanekaragaman+hayati+garis+wallace&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=konservasi+penyu+hijau+pantai+sukamade&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=flora+endemik+indonesia+kantong+semar&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=pelestarian+jalak+putih+jawa&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=ancaman+kepunahan+fauna+indonesia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=hutan+hujan+tropis+sumatera+unesco&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=spesies+baru+ditemukan+indonesia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=satwa+liar+dilindungi+bksda&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=stop+perburuan+liar+satwa&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=konservasi+terumbu+karang+segitiga+emas&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=tanaman+obat+herbal+asli+indonesia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=pelestarian+pohon+cendana+ntt&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=hutan+lindung+indonesia+paru-paru+dunia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=pelestarian+bahasa+jawa+krama&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=revitalisasi+bahasa+sunda+sekolah&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=bahasa+daerah+papua+terancam+punah&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=sastra+lisan+daerah+nusantara&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=kamus+bahasa+daerah+kemendikbud&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=bahasa+madura+pelestarian+budaya&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=aksara+lontara+sulawesi+selatan&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=penggunaan+aksara+bali+papan+nama&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=kongres+bahasa+daerah+nusantara&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=dialek+melayu+nusantara+variasi&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=arsitektur+rumah+gadang+minangkabau&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=filosofi+arsitektur+joglo+jawa&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=rumah+adat+honai+papua+struktur&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=arsitektur+tongkonan+toraja+makna&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=rumah+panggung+melayu+tradisional&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=arsitektur+vernakular+indonesia+modern&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=rumah+adat+mbaru+niang+flores&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=tata+ruang+desa+adat+bali&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=arsitektur+candi+nusantara+purbakala&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=pelestarian+bangunan+kolonial+heritage&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=sejarah+kerajaan+majapahit+situs+trowulan&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=kejayaan+kerajaan+sriwijaya+maritim&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=kesultanan+mataram+islam+yogyakarta+surakarta&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=sejarah+kesultanan+ternate+tidore&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=situs+megalitikum+gunung+padang+cianjur&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=penelitian+arkeologi+nasional+indonesia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=peninggalan+purba+sangiran+solov&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=sejarah+perjuangan+kemerdekaan+indonesia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=tokoh+pahlawan+nasional+indonesia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=arsip+nasional+republik+indonesia+anri&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=upacara+sekaten+yogyakarta+surakarta&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=tradisi+grebeg+syawal+keraton&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=festival+budaya+lembah+baliem+papua&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=upacara+adat+kasada+bromo+tengger&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=pesta+kesenian+bali+pkb&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=festival+krakatau+lampung&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=kirab+budaya+nusantara+perayaan&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=festival+gandrung+sewu+banyuwangi&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=upacara+adat+tiwah+dayak&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=pesta+laut+nadran+nelayan&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=literasi+keuangan+masyarakat+indonesia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=perkembangan+fintech+syariah+indonesia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=gerakan+nasional+bangga+buatan+indonesia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=ekspor+produk+halal+indonesia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=bursa+efek+indonesia+pasar+modal&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=kebijakan+moneter+bank+indonesia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=perekonomian+digital+asean+indonesia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=investasi+asing+langsung+fdi+indonesia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=reformasi+birokrasi+ekonomi+nasional&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=inklusivitas+ekonomi+perempuan+indonesia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=mitigasi+bencana+gempa+bumi+bmkg&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=kesiapsiagaan+tsunami+pesisir+indonesia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=aktivitas+gunung+berapi+aktif+vulkanologi&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=penanganan+banjir+kota+besar+indonesia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=kebakaran+hutan+dan+lahan+karhutla&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=perubahan+iklim+dampak+pulau+kecil&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=bnpb+penanggulangan+bencana+daerah&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=desa+tangguh+bencana+destana&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=sistem+peringatan+dini+bencana+indonesia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=edukasi+kebencanaan+sejak+dini&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=perkembangan+transportasi+mrt+lrt+jakarta&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=kereta+cepat+jakarta+bandung+perpanjangan&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=pembangunan+waduk+dan+bendungan+nasional&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=elektrifikasi+pedesaan+pln+indonesia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=proyek+strategis+nasional+psn+terbaru&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=pembangunan+pos+lintas+batas+negara+plbn&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=jaringan+internet+tulang+punggung+palapa+ring&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=penataan+kawasan+kumuh+perkotaan&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=pembangunan+sanitasi+dan+air+bersih&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=infrastruktur+digital+5g+indonesia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=prestasi+atlet+indonesia+olimpiade&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=perkembangan+sepakbola+timnas+indonesia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=turnamen+bulutangkis+indonesia+open&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=kompetisi+liga+1+indonesia+terkini&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=pembinaan+atlet+muda+kemenpora&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=olahraga+tradisional+egrang+trompah&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=perkembangan+esports+indonesia+prestasi&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=maraton+internasional+bali+jakarta&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=fasilitas+olahraga+daerah+stadion&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=pekan+olahraga+nasional+pon+persiapan&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=kurikulum+merdeka+belajar+kemendikbud&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=peningkatan+kesejahteraan+guru+honorer&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=beasiswa+lpdp+kuliah+luar+negeri&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=digitalisasi+sekolah+daerah+tertinggal&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=prestasi+siswa+indonesia+olimpiade+sains&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=revitalisasi+pendidikan+vokasi+smk&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=perguruan+tinggi+terbaik+indonesia+ui+itb+ugm&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=pendidikan+inklusif+anak+berkebutuhan+khusus&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=gerakan+literasi+nasional+membaca&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=pendidikan+tinggi+vokasi+politeknik&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=pelayanan+kesehatan+bpjs+kesehatan&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=penurunan+prevalensi+stunting+nasional&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=pembangunan+puskesmas+daerah+terpencil&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=pencegahan+penyakit+menular+dbd+tb&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=program+imunisasi+nasional+anak&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=ketersediaan+obat+dan+alkes+dalam+negeri&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=gaya+hidup+sehat+masyarakat+germas&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=tenaga+medis+dan+dokter+spesialis+daerah&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=perkembangan+telemedicine+indonesia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=kesehatan+mental+keswa+masyarakat&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=kebijakan+maritim+indonesia+poros+maritim&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=patroli+keamanan+laut+bakamla+tni+al&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=perlindungan+nelayan+tradisional+indonesia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=pemberantasan+illegal+fishing+perairan+natuna&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=budidaya+perikanan+tangkap+dan+komoditas+ekspor&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=industri+pengolahan+rumput+laut+indonesia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=pembangunan+galangan+kapal+dalam+negeri&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=ekosistem+pesisir+dan+terumbu+karang+lestari&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=potensi+wisata+bahari+bawah+laut&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=konektivitas+tol+laut+logistik+nasional&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=swasembada+pangan+padi+jagung+kedelai&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=modernisasi+alat+pertanian+alsintan&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=kesejahteraan+petani+indonesia+nilai+tukar&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=pertanian+organik+dan+ramah+lingkungan&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=perkebunan+kelapa+sawit+berkelanjutan+ispo&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=potensi+ekspor+karet+dan+kakao+indonesia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=inovasi+teknologi+pangan+brin&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=food+estate+ketahanan+pangan+nasional&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=irigasi+pertanian+dan+pembangunan+embung&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=pemberdayaan+petani+milenial+indonesia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=perkembangan+film+indonesia+prestasi+fii&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=industri+musik+tanah+air+konser+lokal&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=seni+rupa+kontemporer+indonesia+pameran&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=perkembangan+fashion+hijab+dan+lokal&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=industri+game+lokal+developer+indonesia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=literasi+buku+dan+penulis+sastra+indonesia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=festival+teater+dan+seni+pertunjukan&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=komunitas+kreatif+anak+muda+daerah&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=potensi+animasi+lokal+masuk+internasional&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=arsitektur+dan+desain+interior+kreatif+lokal&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=transisi+energi+bersih+indonesia+net+zero&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=potensi+pembangkit+listrik+tenaga+surya+plts&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=pengembangan+energi+panas+bumi+geothermal&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=pembangkit+listrik+tenaga+banyu+angin+sidrap&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=penggunaan+biodiesel+b35+b40+indonesia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=ekosistem+kendaraan+listrik+ev+nasional&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=pembangunan+pabrik+baterai+ev+indonesia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=potensi+hidroenergi+pembangkit+listrik+air&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=kebijakan+pembatasan+pembangkit+batubara&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=pendanaan+hijau+just+energy+transition+partnership&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=diplomasi+luar+negeri+indonesia+bebas+aktif&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=peran+indonesia+di+pbb+dan+dewan+keamanan&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=kepemimpinan+indonesia+di+tingkat+asean&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=kerja+sama+bilateral+indonesia+mitra+strategis&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=bantuan+kemanusiaan+indonesia+ke+luar+negeri&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=perlindungan+wni+pekerja+migran+luar+negeri&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=perjanjian+perdagangan+bebas+fta+indonesia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=keanggotaan+indonesia+g20+dan+oecd&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=kontingen+pasukan+perdamaian+garuda+indonesia&hl=id&gl=ID&ceid=ID:id',
+			'https://news.google.com/rss/search?q=promosi+budaya+indonesia+di+luar+negeri&hl=id&gl=ID&ceid=ID:id'
+		];
+
+        var globalData = [],
+            globalNewsKeywords = [],
+            assistantQueue = [];
+        var botActive = false,
+            botTimer = null,
+            botWindow = null,
+            currentIndex = 0;
+        var linksReadSinceBreak = 0,
+            nextBreakAt = 0;
+        var breakCountdownTimer = null;
+        var sessionStartTime = null,
+            sessionTotalEstSec = 0;
+        var globalTotalSteps = 0,
+            globalCompletedSteps = 0;
+        var clockInterval = null;
+
+        function formatTime(sec) {
+            var s = Math.max(0, Math.round(sec));
+            var m = Math.floor(s / 60),
+                ss = s % 60;
+            return (m < 10 ? '0' : '') + m + ':' + (ss < 10 ? '0' : '') + ss;
+        }
+
+        function startSessionClock() {
+            if (clockInterval) clearInterval(clockInterval);
+            clockInterval = setInterval(function() {
+                if (!botActive || !sessionStartTime) return;
+                var elapsed = (Date.now() - sessionStartTime) / 1000;
+                var remaining = Math.max(0, sessionTotalEstSec - elapsed);
+                document.querySelectorAll('.time-current').forEach(function(el) { el.textContent = formatTime(elapsed); });
+                document.querySelectorAll('.time-display span:last-child').forEach(function(el) { el.textContent =
+                        formatTime(remaining); });
+            }, 1000);
+        }
+
+        function stopSessionClock() {
+            if (clockInterval) { clearInterval(clockInterval);
+                clockInterval = null; }
+            document.querySelectorAll('.time-current').forEach(function(el) { el.textContent = '00:00'; });
+            document.querySelectorAll('.time-display span:last-child').forEach(function(el) { el.textContent = '00:00'; });
+            document.getElementById('active-progress-bar').style.width = '0%';
+        }
+
+        function randomBreakThreshold() { return Math.floor(Math.random() * 5) + 3; }
+
+        function randomBreakDuration() { return (Math.floor(Math.random() * 8) + 5) * 1000; }
+
+        function initSession(newsMode, assistantMode) {
+            linksReadSinceBreak = 0;
+            nextBreakAt = randomBreakThreshold();
+            var newsLimit = newsMode ? (parseInt(document.getElementById('news-limit').value) || 0) : 0;
+            var newsMinD = parseInt(document.getElementById('news-min-delay').value) || 8;
+            var newsMaxD = parseInt(document.getElementById('news-max-delay').value) || 12;
+            var asstLimit = assistantMode ? (parseInt(document.getElementById('asst-count').value) || 0) : 0;
+            var asstMinD = parseInt(document.getElementById('asst-min-delay').value) || 8;
+            var asstMaxD = parseInt(document.getElementById('asst-max-delay').value) || 12;
+            var transD = parseInt(document.getElementById('inter-bot-delay').value) || 5;
+            var breakEnabled = document.getElementById('break-toggle').checked;
+
+            var avgBreakInterval = 4.5,
+                avgBreakDur = 8,
+                stepGap = 0.8;
+            var newsBreakCount = breakEnabled && newsLimit > 0 ? Math.floor(newsLimit / avgBreakInterval) : 0;
+            var asstBreakCount = breakEnabled && asstLimit > 0 ? Math.floor(asstLimit / avgBreakInterval) : 0;
+
+            var newsEst = newsMode ? newsLimit * ((newsMinD + newsMaxD) / 2 + stepGap) + newsBreakCount * avgBreakDur : 0;
+            var asstEst = assistantMode ? asstLimit * ((asstMinD + asstMaxD) / 2 + stepGap) + asstBreakCount * avgBreakDur :
+                0;
+            var transEst = (newsMode && assistantMode) ? transD : 0;
+
+            globalTotalSteps = newsLimit + asstLimit;
+            globalCompletedSteps = 0;
+            sessionTotalEstSec = newsEst + asstEst + transEst;
+            sessionStartTime = Date.now();
+            startSessionClock();
+        }
+
+        function updateProgress() {
+            globalCompletedSteps++;
+            var pct = globalTotalSteps > 0 ? Math.min(100, Math.round((globalCompletedSteps / globalTotalSteps) * 100)) : 0;
+            document.getElementById('active-progress-bar').style.width = pct + '%';
+        }
+
+        function speak(msg) {
+            document.getElementById('toast-message').innerText = msg;
+            var t = document.getElementById('w-toast');
+            t.classList.add('show');
+            setTimeout(function() { t.classList.remove('show'); }, 4500);
+        }
+
+        function addLog(mode, task) {
+            var body = document.getElementById('activity-log-body');
+            if (body.querySelector('td[colspan]')) body.innerHTML = '';
+            var time = new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+
+            var color = 'var(--nb-blue)';
+            if (mode.includes('Tradisi')) color = 'var(--nb-red)';
+            if (mode.includes('Arsip')) color = 'var(--nb-gold-accent)';
+
+            var tr = document.createElement('tr');
+            tr.innerHTML =
+                '<td style="color:' + color + ';font-weight:700;font-family:\'Quicksand\',sans-serif;font-size:11px;white-space:nowrap">' +
+                mode + '</td>' +
+                '<td style="max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--text-primary)">' +
+                task + '</td>' +
+                '<td style="text-align:center;color:var(--text-secondary);font-size:10px;white-space:nowrap">' + time +
+                '</td>';
+            body.prepend(tr);
+        }
+
+        function updateStatusIndicator(state) {
+            var dot = document.getElementById('status-indicator');
+            var text = document.getElementById('status-text');
+            if (state === 'online') {
+                dot.className = 'status-dot online';
+                text.textContent = 'NGeBING sedang menjelajah tradisi...';
+                text.style.color = 'var(--nb-green)';
+            } else if (state === 'error') {
+                dot.className = 'status-dot error';
+                text.textContent = 'Silaturahmi koneksi terputus';
+                text.style.color = 'var(--nb-red)';
+            } else {
+                dot.className = 'status-dot';
+                text.textContent = 'Wadah berkumpul belum aktif';
+                text.style.color = 'var(--text-secondary)';
+            }
+        }
+
+        function playAlarm() {
+            try {
+                var ctx = new(window.AudioContext || window.webkitAudioContext)();
+                var notes = [523, 587, 659, 698, 784, 880, 988, 1047];
+                var startTime = ctx.currentTime + 0.05;
+                notes.forEach(function(freq, i) {
+                    var osc = ctx.createOscillator();
+                    var gain = ctx.createGain();
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.frequency.setValueAtTime(freq, startTime + (i * 0.12));
+                    gain.gain.setValueAtTime(0.2, startTime + (i * 0.12));
+                    gain.gain.exponentialRampToValueAtTime(0.01, startTime + (i * 0.12) + 0.1);
+                    osc.start(startTime + (i * 0.12));
+                    osc.stop(startTime + (i * 0.12) + 0.12);
+                });
+            } catch (e) {}
+        }
+
+        function showBreakPopup(durSec, onDone) {
+            var popup = document.getElementById('break-popup');
+            var numEl = document.getElementById('break-countdown-num');
+            var remaining = durSec;
+            numEl.textContent = remaining;
+            popup.classList.add('show');
+            if (breakCountdownTimer) clearInterval(breakCountdownTimer);
+            breakCountdownTimer = setInterval(function() {
+                remaining--;
+                numEl.textContent = remaining;
+                if (remaining <= 0) {
+                    clearInterval(breakCountdownTimer);
+                    breakCountdownTimer = null;
+                    popup.classList.remove('show');
+                    onDone();
+                }
+            }, 1000);
+        }
+
+        function triggerBreak(callback) {
+            var breakEnabled = document.getElementById('break-toggle').checked;
+            if (!breakEnabled) {
+                linksReadSinceBreak = 0;
+                nextBreakAt = randomBreakThreshold();
+                callback();
+                return;
+            }
+            var durMs = randomBreakDuration();
+            var durSec = Math.round(durMs / 1000);
+            addLog('⏸ Rehat', durSec + 's istirahat kebangsaan');
+            linksReadSinceBreak = 0;
+            nextBreakAt = randomBreakThreshold();
+            showBreakPopup(durSec, function() {
+                if (botActive) callback();
+            });
+        }
+
+        function onMissionComplete() {
+            playAlarm();
+            updateStatusIndicator('offline');
+            document.getElementById('start-stop-btn').innerHTML = '<i class="fas fa-flag"></i>';
+            addLog('✅ Merdeka', 'Penjelajahan Nusantara Selesai!');
+            speak('Eksplorasi rampung! NGeBING berhasil menyatukan seluruh data tradisi!');
+            botActive = false;
+            document.getElementById('active-progress-bar').style.width = '100%';
+            if (clockInterval) clearInterval(clockInterval);
+            var elapsed = sessionStartTime ? (Date.now() - sessionStartTime) / 1000 : 0;
+            document.querySelectorAll('.time-current').forEach(function(el) { el.textContent = formatTime(elapsed); });
+            document.querySelectorAll('.time-display span:last-child').forEach(function(el) { el.textContent = '00:00'; });
+            setTimeout(function() { window.location.href = ORGANIC_REWARDS_LINK; }, 2000);
+        }
+
+        async function initNewsData() {
+            var extracted = newsCategoriesRSS.map(function(url) {
+                try {
+                    var m = url.match(/[?&]q=([^&]+)/);
+                    return m ? decodeURIComponent(m[1].replace(/\+/g, ' ')) : null;
+                } catch (e) { return null; }
+            }).filter(Boolean);
+
+            if (extracted.length > 0) {
+                globalNewsKeywords = extracted.sort(function() { return Math.random() - 0.5; });
+            }
+        }
+
+        function runNewsProcess() {
+            return new Promise(function(resolve) {
+                var fallback = [
+                    "Suku Tradisi Jawa dan Sunda", "Kearifan Lokal Suku Dayak",
+                    "Adat Istiadat Sumatera Toraja", "Bahasa Daerah di Indonesia",
+                    "Seni Tari Tradisional Nusantara", "Warisan Budaya UNESCO Indonesia",
+                    "Kain Tenun Ikat dan Songket", "Festival Kirab Budaya Kebinekaan",
+                    "Toleransi Kebudayaan Bhinneka Tunggal Ika", "Tradisi Unik Indonesia"
+                ];
+                var kw = globalNewsKeywords.length > 0 ? globalNewsKeywords : fallback;
+                kw = kw.slice().sort(function() { return Math.random() - 0.5; });
+                var pfx = [""];
+                currentIndex = 0;
+
+                function step() {
+                    var limit = parseInt(document.getElementById('news-limit').value) || 15;
+                    if (currentIndex >= limit || !botActive) {
+                        if (botWindow && !botWindow.closed) botWindow.close();
+                        resolve();
+                        return;
+                    }
+                    if (linksReadSinceBreak >= nextBreakAt) { triggerBreak(step); return; }
+
+                    var base = kw[currentIndex % kw.length];
+                    var p = pfx[Math.floor(currentIndex / kw.length) % pfx.length];
+                    var q = (p + base).trim();
+                    var minD = parseInt(document.getElementById('news-min-delay').value) || 8;
+                    var maxD = parseInt(document.getElementById('news-max-delay').value) || 12;
+                    var delay = (Math.floor(Math.random() * (maxD - minD + 1)) + minD) * 1000;
+
+                    botWindow = window.open('https://www.bing.com/search?q=' + encodeURIComponent(q) + '&form=QBLH',
+                        'ngebing_worker', 'width=800,height=600');
+                    addLog('Tradisi', q);
+                    updateProgress();
+
+                    botTimer = setTimeout(function() {
+                        if (botWindow && !botWindow.closed) botWindow.close();
+                        currentIndex++;
+                        linksReadSinceBreak++;
+                        setTimeout(step, 900);
+                    }, delay);
+                }
+                step();
+            });
+        }
+
+        function runAssistantProcess() {
+            return new Promise(function(resolve) {
+                if (!globalData.length) { resolve(); return; }
+                var map = {};
+                globalData.forEach(function(i) { map[i.url] = i; });
+                var unique = Object.values(map);
+                var splitIdx = Math.max(0, unique.length - 10);
+                var newest = unique.slice(splitIdx).sort(function() { return Math.random() - 0.5; });
+                var older = unique.slice(0, splitIdx).sort(function() { return Math.random() - 0.5; });
+                assistantQueue = [];
+                var mx = Math.max(newest.length, older.length);
+                for (var i = 0; i < mx; i++) {
+                    if (i < older.length) assistantQueue.push(older[i]);
+                    if (i < newest.length) assistantQueue.push(newest[i]);
+                }
+                currentIndex = 0;
+
+                function step() {
+                    var limit = parseInt(document.getElementById('asst-count').value) || 10;
+                    if (currentIndex >= limit || currentIndex >= assistantQueue.length || !botActive) {
+                        if (botWindow && !botWindow.closed) botWindow.close();
+                        resolve();
+                        return;
+                    }
+                    if (linksReadSinceBreak >= nextBreakAt) { triggerBreak(step); return; }
+
+                    var item = assistantQueue[currentIndex];
+                    var minD = parseInt(document.getElementById('asst-min-delay').value) || 8;
+                    var maxD = parseInt(document.getElementById('asst-max-delay').value) || 12;
+                    var delay = (Math.floor(Math.random() * (maxD - minD + 1)) + minD) * 1000;
+
+                    botWindow = window.open(item.url, 'ngebing_worker', 'width=800,height=600');
+                    addLog('Arsip', item.title || item.url);
+                    updateProgress();
+
+                    botTimer = setTimeout(function() {
+                        if (botWindow && !botWindow.closed) botWindow.close();
+                        currentIndex++;
+                        linksReadSinceBreak++;
+                        setTimeout(step, 900);
+                    }, delay);
+                }
+                step();
+            });
+        }
+
+        function fetchDataFromDB() {
+            return new Promise(function(resolve) {
+                fetch(WEB_APP_URL)
+                    .then(function(res) { return res.json(); })
+                    .then(function(data) {
+                        if (Array.isArray(data) && data.length > 0) {
+                            globalData = data;
+                            document.getElementById('db-link-icon').style.color = 'var(--nb-green)';
+                            document.getElementById('db-status-text').textContent =
+                                'Silaturahmi data terjalin — ' + data.length + ' data budaya siap';
+                            document.getElementById('gas-server-label').innerHTML =
+                                '<span style="color:var(--nb-green)">● Online</span> · ' + data.length +
+                                ' arsip';
+                        } else {
+                            document.getElementById('db-link-icon').style.color = 'var(--nb-gold-accent)';
+                            document.getElementById('db-status-text').textContent =
+                                'Gerbang data kosong / belum terisi';
+                            document.getElementById('gas-server-label').innerHTML =
+                                '<span style="color:var(--nb-gold-accent)">⚠ Kosong</span>';
+                        }
+                        resolve();
+                    })
+                    .catch(function() {
+                        document.getElementById('db-link-icon').style.color = 'var(--nb-red)';
+                        document.getElementById('db-status-text').textContent = 'Gagal terhubung dengan pangkalan data';
+                        document.getElementById('gas-server-label').innerHTML =
+                            '<span style="color:var(--nb-red)">✗ Gangguan</span>';
+                        resolve();
+                    });
+            });
+        }
+
+        // ── EVENT LISTENERS ──
+
+        document.getElementById('start-stop-btn').addEventListener('click', function() {
+            if (botActive) {
+                botActive = false;
+                if (botTimer) { clearTimeout(botTimer);
+                    botTimer = null; }
+                if (botWindow && !botWindow.closed) botWindow.close();
+                if (breakCountdownTimer) { clearInterval(breakCountdownTimer);
+                    breakCountdownTimer = null; }
+                document.getElementById('break-popup').classList.remove('show');
+                this.innerHTML = '<i class="fas fa-flag"></i>';
+                updateStatusIndicator('offline');
+                stopSessionClock();
+                speak('Sesi dihentikan. Bot NGeBING kembali bersiap di balai.');
+                addLog('⏹ Jeda Sesi', 'Proses dihentikan manual');
+            } else {
+                var newsMode = document.getElementById('mode-news').checked;
+                var assistantMode = document.getElementById('mode-assistant').checked;
+                if (!newsMode && !assistantMode) {
+                    speak('Aktifkan minimal salah satu modul eksplorasi!');
+                    return;
+                }
+                botActive = true;
+                this.innerHTML = '<i class="fas fa-stop"></i>';
+                updateStatusIndicator('online');
+                initSession(newsMode, assistantMode);
+
+                var transMs = (parseInt(document.getElementById('inter-bot-delay').value) || 5) * 1000;
+
+                if (newsMode && assistantMode) {
+                    speak('NGeBING mulai meluncur menelusuri tradisi Nusantara...');
+                    addLog('▶ Mulai', 'Kedua gerbang eksplorasi dibuka');
+                    runNewsProcess().then(function() {
+                        if (!botActive) return;
+                        addLog('➡ Transisi', 'Beralih ke arsip database...');
+                        speak('Penjelajah tradisi selesai. Membuka arsip dalam ' + (transMs / 1000) +
+                        ' detik.');
+                        setTimeout(function() {
+                            if (!botActive) return;
+                            runAssistantProcess().then(function() {
+                                if (botActive) onMissionComplete();
+                            });
+                        }, transMs);
+                    });
+                } else if (newsMode) {
+                    speak('Memulai penjelajahan topik tradisi Nusantara...');
+                    addLog('▶ Mulai', 'Modul Tradisi aktif');
+                    runNewsProcess().then(function() {
+                        if (botActive) onMissionComplete();
+                    });
+                } else {
+                    speak('Membuka gerbang data arsip komunitas NGeBING...');
+                    addLog('▶ Mulai', 'Modul Arsip aktif');
+                    runAssistantProcess().then(function() {
+                        if (botActive) onMissionComplete();
+                    });
+                }
+            }
+        });
+
+        document.getElementById('settings-btn').addEventListener('click', function() {
+            var sec = document.getElementById('settings-section');
+            sec.classList.toggle('hidden');
+            this.classList.toggle('active');
+        });
+
+        document.getElementById('playlist-btn').addEventListener('click', function() {
+            var sec = document.getElementById('activity-section');
+            sec.classList.toggle('hidden');
+            this.classList.toggle('active');
+        });
+
+        // ── LOAD ──
+
+        window.addEventListener('load', async function() {
+            var loadEl = document.getElementById('loading');
+            var timeout = new Promise(function(r) { setTimeout(r, 3000); });
+            await Promise.race([
+                Promise.allSettled([fetchDataFromDB(), initNewsData()]),
+                timeout
+            ]);
+            loadEl.classList.add('fade-out');
+            setTimeout(function() { loadEl.style.display = 'none'; }, 600);
+
+            speak('Selamat datang di NGeBING Nusantara!');
+            updateStatusIndicator('offline');
+        });
+    </script>
 </body>
 </html>
